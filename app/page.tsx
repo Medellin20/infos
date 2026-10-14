@@ -349,7 +349,7 @@ export default function TeacherForm() {
                         )}
                       </div>
 
-                      <div className="grid grid-cols-1 gap-3 min-[520px]:grid-cols-2">
+                      <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-3 min-[520px]:grid-cols-[repeat(2,minmax(0,1fr))]">
                         <div className="min-w-0 space-y-1.5">
                           <Label htmlFor={`start-${dayIdx}-${slot.id}`} className="text-xs">
                             Heure de début <span className="text-red-500">*</span>
@@ -360,7 +360,7 @@ export default function TeacherForm() {
                             step={300}
                             value={slot.start_time}
                             onChange={(e) => updateSlot(dayIdx, slot.id, 'start_time', e.target.value)}
-                            className="time-field min-w-0 bg-white"
+                            className="time-field min-w-0 max-w-full bg-white"
                           />
                         </div>
                         <div className="min-w-0 space-y-1.5">
@@ -373,7 +373,7 @@ export default function TeacherForm() {
                             step={300}
                             value={slot.end_time}
                             onChange={(e) => updateSlot(dayIdx, slot.id, 'end_time', e.target.value)}
-                            className="time-field min-w-0 bg-white"
+                            className="time-field min-w-0 max-w-full bg-white"
                           />
                         </div>
                       </div>
