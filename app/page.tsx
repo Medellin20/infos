@@ -199,9 +199,9 @@ export default function TeacherForm() {
   }
 
   return (
-    <div className="schedule-page min-h-screen px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div className="schedule-page min-h-screen overflow-x-hidden px-3 py-5 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
     <div className="mx-auto max-w-3xl">
-      <header className="schedule-hero mb-8 rounded-[2rem] px-6 py-8 text-white shadow-2xl shadow-slate-900/10 sm:px-10 sm:py-10">
+      <header className="schedule-hero mb-6 rounded-3xl px-5 py-6 text-white shadow-2xl shadow-slate-900/10 sm:mb-8 sm:rounded-[2rem] sm:px-10 sm:py-10">
         <div className="relative z-10">
           <div className="mb-8 flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/10 shadow-inner shadow-white/10">
@@ -239,7 +239,7 @@ export default function TeacherForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Teacher info */}
         <Card className="rounded-2xl border-white/80 bg-white/95 shadow-xl shadow-slate-200/60 backdrop-blur-sm">
-          <CardHeader>
+          <CardHeader className="p-4 sm:p-6">
             <CardTitle className="flex items-center gap-2 text-lg">
               <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50">
                 <User className="h-4 w-4 text-blue-700" />
@@ -248,7 +248,7 @@ export default function TeacherForm() {
             </CardTitle>
             <CardDescription>Vos coordonnées et statut professionnel</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 px-4 pb-5 sm:px-6 sm:pb-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="last_name">Nom <span className="text-red-500">*</span></Label>
@@ -300,7 +300,7 @@ export default function TeacherForm() {
           {/* Days */}
           {DAYS.map((day, dayIdx) => (
             <Card key={day.value} className="rounded-2xl border-white/80 bg-white/95 shadow-lg shadow-slate-200/50 backdrop-blur-sm">
-              <CardHeader className="pb-4">
+              <CardHeader className="p-4 pb-3 sm:p-6 sm:pb-4">
                 <div className="flex items-center justify-between flex-wrap gap-3">
                   <div>
                     <CardTitle className="text-lg flex items-center gap-2">
@@ -328,9 +328,9 @@ export default function TeacherForm() {
               </CardHeader>
 
               {days[dayIdx].has_courses && (
-                <CardContent className="space-y-3">
+                <CardContent className="space-y-3 px-4 pb-4 sm:px-6 sm:pb-6">
                   {days[dayIdx].slots.map((slot, slotIdx) => (
-                    <div key={slot.id} className="space-y-3 rounded-xl border border-slate-200/80 bg-slate-50/80 p-3 sm:p-4">
+                    <div key={slot.id} className="min-w-0 space-y-3 rounded-xl border border-slate-200/80 bg-slate-50/80 p-3 sm:p-4">
                       <div className="flex items-center justify-between">
                         <Badge variant="secondary" className="text-xs">
                           Créneau {slotIdx + 1}
@@ -349,8 +349,8 @@ export default function TeacherForm() {
                         )}
                       </div>
 
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="space-y-1.5">
+                      <div className="grid grid-cols-1 gap-3 min-[520px]:grid-cols-2">
+                        <div className="min-w-0 space-y-1.5">
                           <Label htmlFor={`start-${dayIdx}-${slot.id}`} className="text-xs">
                             Heure de début <span className="text-red-500">*</span>
                           </Label>
@@ -360,10 +360,10 @@ export default function TeacherForm() {
                             step={300}
                             value={slot.start_time}
                             onChange={(e) => updateSlot(dayIdx, slot.id, 'start_time', e.target.value)}
-                            className="bg-white"
+                            className="time-field min-w-0 bg-white"
                           />
                         </div>
-                        <div className="space-y-1.5">
+                        <div className="min-w-0 space-y-1.5">
                           <Label htmlFor={`end-${dayIdx}-${slot.id}`} className="text-xs">
                             Heure de fin <span className="text-red-500">*</span>
                           </Label>
@@ -373,12 +373,12 @@ export default function TeacherForm() {
                             step={300}
                             value={slot.end_time}
                             onChange={(e) => updateSlot(dayIdx, slot.id, 'end_time', e.target.value)}
-                            className="bg-white"
+                            className="time-field min-w-0 bg-white"
                           />
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 gap-3 min-[520px]:grid-cols-2">
                         <div className="space-y-1.5">
                           <Label htmlFor={`class-${dayIdx}-${slot.id}`} className="text-xs">
                             Classe <span className="text-red-500">*</span>
@@ -428,7 +428,7 @@ export default function TeacherForm() {
             </div>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:justify-end pt-2 pb-8">
+          <div className="flex flex-col gap-3 pt-2 pb-6 sm:flex-row sm:justify-end sm:pb-8">
             <Button
               type="button"
               variant="outline"

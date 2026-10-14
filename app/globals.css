@@ -146,3 +146,23 @@ html {
   content: '';
   pointer-events: none;
 }
+
+.schedule-page input,
+.schedule-page textarea,
+.schedule-page select {
+  max-width: 100%;
+}
+
+.schedule-page .time-field {
+  min-width: 0;
+  width: 100%;
+  min-height: 2.75rem;
+}
+
+@media (max-width: 639px) {
+  .schedule-page input,
+  .schedule-page textarea,
+  .schedule-page select {
+    font-size: 16px;
+  }
+}
