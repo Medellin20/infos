@@ -81,13 +81,32 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .schedule-page {
   position: relative;
   isolation: isolate;
   background-color: #f4f7fb;
   background-image:
-    radial-gradient(ellipse at 8% 0%, rgba(147, 197, 253, 0.32), transparent 34rem),
-    radial-gradient(ellipse at 100% 18%, rgba(196, 181, 253, 0.2), transparent 32rem);
+    linear-gradient(rgba(239, 246, 255, 0.62), rgba(239, 246, 255, 0.78)),
+    url('/rentree-scolaire.png');
+  background-position: center, center;
+  background-size: cover;
+  background-attachment: scroll, scroll;
+}
+
+@media (min-width: 768px) {
+  .schedule-page {
+    background-attachment: scroll, fixed;
+  }
 }
 
 .schedule-page::before {

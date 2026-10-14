@@ -357,6 +357,7 @@ export default function TeacherForm() {
                           <Input
                             id={`start-${dayIdx}-${slot.id}`}
                             type="time"
+                            step={300}
                             value={slot.start_time}
                             onChange={(e) => updateSlot(dayIdx, slot.id, 'start_time', e.target.value)}
                             className="bg-white"
@@ -369,6 +370,7 @@ export default function TeacherForm() {
                           <Input
                             id={`end-${dayIdx}-${slot.id}`}
                             type="time"
+                            step={300}
                             value={slot.end_time}
                             onChange={(e) => updateSlot(dayIdx, slot.id, 'end_time', e.target.value)}
                             className="bg-white"
