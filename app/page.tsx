@@ -277,7 +277,7 @@ export default function TeacherForm() {
                   id="professional_status"
                   value={professionalStatus}
                   onChange={(e) => setProfessionalStatus(e.target.value)}
-                  placeholder="Titulaire, vacataire, contractuel..."
+                  placeholder="AME,FE..."
                   required
                 />
               </div>
